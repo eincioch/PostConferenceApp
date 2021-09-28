@@ -10,7 +10,7 @@ namespace CertificateImageGenerator
     {
 
 
-        public async Task<Byte[]> GetCertificate(CertificateProperties certificateProperties, AttendeProperties studentProperties) {
+        public async Task<Byte[]> GetDiploma(DiplomaProperties certificateProperties, AttendeProperties studentProperties) {
 
             string name = studentProperties.FullName;
             int nameFontSize = 26;
@@ -39,7 +39,7 @@ namespace CertificateImageGenerator
             };
 
 
-            var imageFromUri = await Helpers.ImageDownloaderHelper.DownloadPhoto(certificateProperties.CertificateTemplateUrl);
+            var imageFromUri = await Helpers.ImageDownloaderHelper.DownloadPhoto(certificateProperties.DiplomaTemplateUrl);
 
 
             using var memoryStreamImage = new MemoryStream(imageFromUri);

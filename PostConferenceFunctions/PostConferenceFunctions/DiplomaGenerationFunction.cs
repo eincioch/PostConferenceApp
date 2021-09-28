@@ -17,13 +17,13 @@ using PostConferenceDAL.PostConferenceDbContext;
 
 namespace PostConferenceFunctions
 {
-    public static class CertificateGenerationFunction
+    public static class DiplomaGenerationFunction
     {
-        [FunctionName("CertificateGenerationFunction")]
+        [FunctionName("DiplomaGenerationFunction")]
         public static async Task Run(
             [QueueTrigger("queue-attendees", Connection = "AzureWebJobsStorage")] string attendeeQueueItem,
             ILogger log,
-            [Blob("certificates/{queueTrigger}|{rand-guid}.jpg  ", FileAccess.ReadWrite, Connection = "AzureWebJobsStorage")]
+            [Blob("diplomas/{queueTrigger}|{rand-guid}.jpg  ", FileAccess.ReadWrite, Connection = "AzureWebJobsStorage")]
             CloudBlockBlob outputBlob)
         {
             log.LogInformation("Processing new attende");
@@ -53,22 +53,24 @@ namespace PostConferenceFunctions
                     FullName = attendees.FullName
                 };
 
-                CertificateProperties certificateProperties = new CertificateProperties
+                DiplomaProperties diplomaProperties = new DiplomaProperties
                 {
-                    CourseDate = webinar.StartDateTime.Value.ToShortDateString(),
-                    CourseName = "Desarrollo de APIs con .NET",
+                    CourseDate = webinar.StartDateTime.ToShortDateString(),
+                    CourseName = webinar.WebinarName,
                     DescriptionLine1 = "Has participated in webinar",
-                    DescriptionLine2 = webinar.WebinarId.ToString(),
-                    CertificateTemplateUrl = "https://santatrackapistorage.blob.core.windows.net/certificates/Certificado.jpg?sv=2019-12-12&st=2021-01-27T05%3A32%3A33Z&se=2021-12-29T05%3A32%3A00Z&sr=b&sp=r&sig=ljNYU9K30nqe4UBQDPLcnJJn8HP3U1xgdV11cAL8cls%3D"
+                    DescriptionLine2 = webinar.WebinarName,
+                    DiplomaTemplateUrl = webinar.DiplomaTemplateUrl //"https://santatrackapistorage.blob.core.windows.net/certificates/Certificado.jpg?sv=2019-12-12&st=2021-01-27T05%3A32%3A33Z&se=2021-12-29T05%3A32%3A00Z&sr=b&sp=r&sig=ljNYU9K30nqe4UBQDPLcnJJn8HP3U1xgdV11cAL8cls%3D"
                 };
 
-                DiplomaGenerator certificateImageGenerator = new();
+                DiplomaGenerator diplomaGenerator = new();
 
-                var certificateImage = await certificateImageGenerator.GetCertificate(certificateProperties, attendeProperties);
+                var diplomaImage = await diplomaGenerator.GetDiploma(diplomaProperties, attendeProperties);
 
                 outputBlob.Metadata.Add("Name", attendeProperties.FullName);
                 outputBlob.Metadata.Add("Mail", attendeProperties.Email);
-                await outputBlob.UploadFromByteArrayAsync(certificateImage, 0, certificateImage.Length);
+                outputBlob.Metadata.Add("AttendeeId", attendees.AttendeeId.ToString()) ;
+                outputBlob.Metadata.Add("WebinarId", attendees.WebinarId.ToString());
+                await outputBlob.UploadFromByteArrayAsync(diplomaImage, 0, diplomaImage.Length);
 
                 log.LogInformation($"BlobInput processed blob\n Queue:{attendeeQueueItem} \n Blob Name: {outputBlob.Name} bytes");
 

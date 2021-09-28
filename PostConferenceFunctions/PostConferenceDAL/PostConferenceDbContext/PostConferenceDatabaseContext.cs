@@ -36,6 +36,8 @@ namespace PostConferenceDAL.PostConferenceDbContext
 
                 entity.Property(e => e.AttendeeId).HasColumnName("AttendeeID");
 
+                entity.Property(e => e.WebinarId).HasColumnName("WebinarID");
+
                 entity.Property(e => e.DiplomaUrl).IsUnicode(false);
 
                 entity.Property(e => e.Email)
@@ -52,6 +54,8 @@ namespace PostConferenceDAL.PostConferenceDbContext
                 entity.ToTable("Speaker");
 
                 entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");
+
+                entity.Property(e => e.WebinarId).HasColumnName("WebinarID");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(200)
@@ -70,7 +74,11 @@ namespace PostConferenceDAL.PostConferenceDbContext
 
                 entity.Property(e => e.EndDateTime).HasColumnType("datetime");
 
+                entity.Property(e => e.WebinarName).IsUnicode(false);
+
                 entity.Property(e => e.FeedbackFormUrl).IsUnicode(false);
+
+                entity.Property(e => e.DiplomaTemplateUrl).IsUnicode(false);
 
                 entity.Property(e => e.OnlineMeetingJoinUrl).IsUnicode(false);
 

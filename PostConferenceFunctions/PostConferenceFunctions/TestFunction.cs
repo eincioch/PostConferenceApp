@@ -50,17 +50,17 @@ namespace PostConferenceFunctions
                     FullName = attende.FullName
                 };
 
-                CertificateProperties certificateProperties = new CertificateProperties
+                DiplomaProperties certificateProperties = new DiplomaProperties
                 {
-                    CourseDate = webinar.StartDateTime.Value.ToShortDateString(),
+                    CourseDate = webinar.StartDateTime.ToShortDateString(),
                     CourseName = webinar.WebinarId.ToString(),
                     DescriptionLine1 = "Has participated in webinar",
                     DescriptionLine2 = "",
-                    CertificateTemplateUrl = "https://santatrackapistorage.blob.core.windows.net/certificates/Certificado.jpg?sv=2019-12-12&st=2021-01-27T05%3A32%3A33Z&se=2021-12-29T05%3A32%3A00Z&sr=b&sp=r&sig=ljNYU9K30nqe4UBQDPLcnJJn8HP3U1xgdV11cAL8cls%3D"
+                    DiplomaTemplateUrl = "https://santatrackapistorage.blob.core.windows.net/certificates/Certificado.jpg?sv=2019-12-12&st=2021-01-27T05%3A32%3A33Z&se=2021-12-29T05%3A32%3A00Z&sr=b&sp=r&sig=ljNYU9K30nqe4UBQDPLcnJJn8HP3U1xgdV11cAL8cls%3D"
                 };
 
 
-                var certificateImage = await diplomaGenerator.GetCertificate(certificateProperties, attendeProperties);
+                var certificateImage = await diplomaGenerator.GetDiploma(certificateProperties, attendeProperties);
 
                 outputBlob.Metadata.Add("Name", attendeProperties.FullName);
                 outputBlob.Metadata.Add("Mail", attendeProperties.Email);

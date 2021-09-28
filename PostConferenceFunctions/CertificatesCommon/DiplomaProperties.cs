@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CertificateCommon
 {
-    public class CertificateProperties
+    public class DiplomaProperties
     {
         public string CourseName { get; set; }
 
@@ -11,7 +11,7 @@ namespace CertificateCommon
 
         public string DescriptionLine2 { get; set; }
 
-        public string CertificateTemplateUrl { get; set; }
+        public string DiplomaTemplateUrl { get; set; }
 
     }
 }

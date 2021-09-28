@@ -51,6 +51,13 @@ namespace PostConferenceDAL.Repository
             return entity;
         }
 
+        public async Task<EntityEntry> PutAsync(T value)
+        {
+            var entity =  _set.Update(value);
+            await _context.SaveChangesAsync();
+
+            return entity;
+        }
 
         public void Dispose()
         {

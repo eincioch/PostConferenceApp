@@ -8,11 +8,13 @@ namespace PostConferenceDAL.PostConferenceDbContext
     public partial class Webinar
     {
         public int WebinarId { get; set; }
+        public string WebinarName { get; set; }
         public string OnlineMeetingJoinUrl { get; set; }
-        public DateTime? StartDateTime { get; set; }
-        public DateTime? EndDateTime { get; set; }
-        public int? LiveDuration { get; set; }
-        public bool? WebinarStatusReport { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public DateTime EndDateTime { get; set; }
+        public int LiveDuration { get; set; }
+        public bool WebinarStatusReport { get; set; }
         public string FeedbackFormUrl { get; set; }
+        public string DiplomaTemplateUrl { get; set; }
     }
 }
