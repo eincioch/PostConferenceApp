@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.810.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostConferenceFunctions", "PostConferenceFunctions\PostConferenceFunctions.csproj", "{704B4728-8E04-4454-99C0-5E8AA4DAD48C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostConferenceFunctions", "PostConferenceFunctions\PostConferenceFunctions.csproj", "{704B4728-8E04-4454-99C0-5E8AA4DAD48C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateImageGenerator", "CertificateImageGenerator\CertificateImageGenerator.csproj", "{4D9049FA-9F6E-460E-909A-43479F651483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CertificateImageGenerator", "CertificateImageGenerator\CertificateImageGenerator.csproj", "{4D9049FA-9F6E-460E-909A-43479F651483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificatesCommon", "CertificatesCommon\CertificatesCommon.csproj", "{421C8D23-6AE8-4213-934E-CA3B16F041DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CertificatesCommon", "CertificatesCommon\CertificatesCommon.csproj", "{421C8D23-6AE8-4213-934E-CA3B16F041DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostConferenceDAL", "PostConferenceDAL\PostConferenceDAL.csproj", "{A9EBE7BF-1033-41FD-86BA-54CB62AE90E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostConferenceDAL", "PostConferenceDAL\PostConferenceDAL.csproj", "{A9EBE7BF-1033-41FD-86BA-54CB62AE90E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office365Gateway", "Office365Gateway\Office365Gateway.csproj", "{A09F1AA1-9065-417E-B632-D2677E02D350}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A9EBE7BF-1033-41FD-86BA-54CB62AE90E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9EBE7BF-1033-41FD-86BA-54CB62AE90E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9EBE7BF-1033-41FD-86BA-54CB62AE90E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09F1AA1-9065-417E-B632-D2677E02D350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09F1AA1-9065-417E-B632-D2677E02D350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09F1AA1-9065-417E-B632-D2677E02D350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09F1AA1-9065-417E-B632-D2677E02D350}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

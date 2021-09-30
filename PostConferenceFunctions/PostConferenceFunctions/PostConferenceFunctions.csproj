@@ -34,6 +34,7 @@
     <ProjectReference Include="..\CertificatesCommon\CertificatesCommon.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Office365Gateway\Office365Gateway.csproj" />
     <ProjectReference Include="..\PostConferenceDAL\PostConferenceDAL.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
